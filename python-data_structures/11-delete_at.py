@@ -1,10 +1,6 @@
 #!/usr/bin/python3
 
-def divisible_by_2(my_list=[]):
-    multiples = []
-    for i in range(len(my_list)):
-        if my_list[i] % 2 == 0:
-            multiples.append(True)
-        else:
-            multiples.append(False)
-    return (multiples)
+def delete_at(my_list=[], idx=0):
+    if idx >= 0 and idx < len(my_list):
+        del my_list[idx]
+    return (my_list)
