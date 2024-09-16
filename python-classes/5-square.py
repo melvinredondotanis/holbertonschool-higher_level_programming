@@ -24,3 +24,13 @@ class Square:
             raise ValueError("size must be >= 0")
         else:
             self._size = value
+
+    def my_print(self):
+        if self._size == 0:
+            print()
+            return
+
+        for i in range(self._size):
+            for j in range(self._size):
+                print("#", end="")
+            print()
