@@ -22,7 +22,7 @@ class Square:
             None
         """
 
-        self._size = size
+        self.__size = size
 
     def area(self):
         """
@@ -38,7 +38,7 @@ class Square:
             int: The area of the square
         """
 
-        return (self._size ** 2)
+        return (self.__size ** 2)
 
     @property
     def size(self):
@@ -56,7 +56,7 @@ class Square:
             int: The size of the square
         """
 
-        return self._size
+        return self.__size
 
     @size.setter
     def size(self, value):
@@ -79,7 +79,7 @@ class Square:
         if value < 0:
             raise ValueError("size must be >= 0")
         else:
-            self._size = value
+            self.__size = value
 
     def my_print(self):
         """
@@ -95,11 +95,11 @@ class Square:
             None
         """
 
-        if self._size == 0:
+        if self.__size == 0:
             print()
             return
 
-        for i in range(self._size):
-            for j in range(self._size):
+        for i in range(self.__size):
+            for j in range(self.__size):
                 print("#", end="")
             print()
