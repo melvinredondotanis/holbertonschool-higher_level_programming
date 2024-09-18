@@ -6,6 +6,7 @@ class Square:
     """
     This is an empty class Square that defines a square.
     """
+
     def __init__(self, size=0, position=(0, 0)):
         """
         The __init__ method of the class Square initializes the instance.
@@ -156,18 +157,3 @@ class Square:
             for k in range(self.__size):
                 print("#", end="")
             print()
-
-my_square_1 = Square(3)
-my_square_1.my_print()
-
-print("--")
-
-my_square_2 = Square(3, (1, 1))
-my_square_2.my_print()
-
-print("--")
-
-my_square_3 = Square(3, (3, 0))
-my_square_3.my_print()
-
-print("--")
