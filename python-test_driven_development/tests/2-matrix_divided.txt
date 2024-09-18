@@ -6,7 +6,7 @@ Using ``matrix_divided``
 
 Importing function from the module:
 
-    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+    >>> matrix_divided = __import__('test').matrix_divided
 
 Dividing a matrix by 3:
 
