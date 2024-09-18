@@ -11,7 +11,7 @@ class Square:
         """
         The __init__ method of the class Square initializes the instance.
         """
-        self.size = size
+        self.__size = size
 
     def area(self):
         """
@@ -69,3 +69,15 @@ class Square:
         if value < 0:
             raise ValueError("size must be >= 0")
         self.__size = value
+
+my_square = Square(89)
+print("Area: {} for size: {}".format(my_square.area(), my_square.size))
+
+my_square.size = 3
+print("Area: {} for size: {}".format(my_square.area(), my_square.size))
+
+try:
+    my_square.size = "5 feet"
+    print("Area: {} for size: {}".format(my_square.area(), my_square.size))
+except Exception as e:
+    print(e)
