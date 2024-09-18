@@ -150,10 +150,12 @@ class Square:
             return
 
         for i in range(self.position[1]):
+            if self.__position[1] == 0:
+                return
             print()
-        for i in range(self.__size):
-            for j in range(self.position[0]):
+        for row in range(self.__size):
+            for space in range(self.position[0]):
                 print(" ", end="")
-            for k in range(self.__size):
+            for line in range(self.__size):
                 print("#", end="")
             print()
