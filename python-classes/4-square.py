@@ -11,7 +11,7 @@ class Square:
         """
         The __init__ method of the class Square initializes the instance.
         """
-        self.size = size
+        self.__size = size
 
     def area(self):
         """
