@@ -3,11 +3,14 @@
 
 
 class Square:
+    """
+    This is an empty class Square that defines a square.
+    """
+
     def __init__(self, size=0):
         """
         The __init__ method of the class Square initializes the instance.
         """
-
         self.size = size
 
     def area(self):
