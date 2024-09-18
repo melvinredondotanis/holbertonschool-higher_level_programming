@@ -6,24 +6,9 @@ class Square:
     def __init__(self, size=0):
         """
         The __init__ method of the class Square initializes the instance.
-
-        Args:
-            size (int): The size of the square
-
-        Raises:
-            TypeError: If size is not an integer
-            ValueError: If size is less than 0
-
-        Returns:
-            None
         """
 
-        if not isinstance(size, int):
-            raise TypeError("size must be an integer")
-        if size < 0:
-            raise ValueError("size must be >= 0")
-        else:
-            self.__size = size
+        self.size = size
 
     def area(self):
         """
@@ -80,5 +65,4 @@ class Square:
             raise TypeError("size must be an integer")
         if value < 0:
             raise ValueError("size must be >= 0")
-        else:
-            self.__size = value
+        self.__size = value
