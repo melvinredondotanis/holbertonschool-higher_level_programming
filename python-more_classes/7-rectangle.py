@@ -51,10 +51,6 @@ class Rectangle:
             return 0
         return 2 * (self.__width + self.__height)
 
-    def print_symbol(self):
-        """Prints the rectangle with the character #"""
-        print(str(self))
-
     def __str__(self):
         rectangle = ""
 
