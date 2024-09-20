@@ -55,11 +55,11 @@ class Rectangle:
         """Prints the rectangle with the character #"""
         print(str(self))
 
+    @classmethod
     def square(cls, size=0):
-        """Returns a new Rectangle instance with equals width and height."""
-        return cls(size, size)
+        """tkt"""
+        return (size, size)
 
-    @staticmethod
     def bigger_or_equal(rect_1, rect_2):
         """Returns the biggest rectangle based on the area"""
         if not isinstance(rect_1, Rectangle):
@@ -85,3 +85,7 @@ class Rectangle:
         """Prints a message when an instance is deleted"""
         Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
+
+my_square = Rectangle.square(5)
+print("Area: {} - Perimeter: {}".format(my_square.area(), my_square.perimeter()))
+print(my_square)
