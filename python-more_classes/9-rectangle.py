@@ -58,7 +58,7 @@ class Rectangle:
     @classmethod
     def square(cls, size=0):
         """tkt"""
-        return (size, size)
+        return cls(size, size)
 
     def bigger_or_equal(rect_1, rect_2):
         """Returns the biggest rectangle based on the area"""
