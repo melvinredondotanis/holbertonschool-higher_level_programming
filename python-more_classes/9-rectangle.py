@@ -51,6 +51,15 @@ class Rectangle:
             return 0
         return 2 * (self.__width + self.__height)
 
+    def print_symbol(self):
+        """Prints the rectangle with the character #"""
+        print(str(self))
+
+    def square(cls, size=0):
+        """Returns a new Rectangle instance with equals width and height."""
+        return cls(size, size)
+
+    @staticmethod
     def bigger_or_equal(rect_1, rect_2):
         """Returns the biggest rectangle based on the area"""
         if not isinstance(rect_1, Rectangle):
@@ -59,16 +68,13 @@ class Rectangle:
             raise TypeError("rect_2 must be an instance of Rectangle")
         return rect_1 if rect_1.area() >= rect_2.area() else rect_2
 
-    @classmethod
-    def square(cls, size=0):
-        """Returns a new Rectangle instance with equals width and height."""
-        return cls(size, size)
-
     def __str__(self):
         rectangle = ""
+
         if self.__width > 0 and self.__height > 0:
             for y in range(self.__height):
                 rectangle += str(self.print_symbol) * self.__width + '\n'
+
         return rectangle[:-1]
 
     def __repr__(self):
