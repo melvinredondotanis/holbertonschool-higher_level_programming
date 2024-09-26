@@ -23,7 +23,6 @@ class Shape(ABC):
 class Cirlce(Shape):
     """Defines a circle class."""
     def __init__(self, radius):
-        super().__init__()
         self.__radius = radius
 
     def area(self):
@@ -38,7 +37,6 @@ class Cirlce(Shape):
 class Rectangle(Shape):
     """Defines a rectangle class."""
     def __init__(self, width, height):
-        super().__init__()
         self.__width = width
         self.__height = height
 
@@ -55,4 +53,3 @@ def shape_info(shape):
     """Prints the area and perimeter of a shape."""
     print(f"Area: {shape.area()}")
     print(f"Perimeter: {shape.perimeter()}")
-    print()
