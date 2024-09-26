@@ -11,13 +11,13 @@ class Shape(ABC):
     def area(self):
         """Abstract method that should be
         implemented in child classes."""
-        raise NotImplementedError
+        pass
 
     @abstractmethod
     def perimeter(self):
         """Abstract method that should be
         implemented in child classes."""
-        raise NotImplementedError
+        pass
 
 
 class Circle(Shape):
@@ -53,4 +53,3 @@ def shape_info(shape):
     """Prints the area and perimeter of a shape."""
     print(f"Area: {shape.area()}")
     print(f"Perimeter: {shape.perimeter()}")
-    print()
