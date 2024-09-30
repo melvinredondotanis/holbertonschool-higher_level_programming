@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-
+#!/usr/bin/python3
 
 def append_write(filename="", text=""):
     """ Appends a text to a file (UTF8). """
