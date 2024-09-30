@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Appends a text to a file (UTF8)."""
 
 def append_write(filename="", text=""):
     """
