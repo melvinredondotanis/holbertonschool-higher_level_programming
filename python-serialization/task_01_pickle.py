@@ -4,7 +4,7 @@
 
 class CustomObject:
     """Custom class to be serialized."""
-    def __init__(self, name: str, age: int, is_student: bool):
+    def __init__(self, name, age, is_student):
         """Initialize object attributes."""
         self.name = name
         self.age = age
@@ -12,9 +12,9 @@ class CustomObject:
 
     def display(self):
         """Display object attributes."""
-        print(f"Name: {self.name}")
-        print(f"Age: {self.age}")
-        print(f"Is Student: {self.is_student}")
+        print("Name: {}".format(self.name))
+        print("Age: {}".format(self.age))
+        print("Is Student: {}".format(self.is_student))
 
     def serialize(self, filename):
         """Serialize object to file."""
@@ -35,3 +35,15 @@ class CustomObject:
         except FileNotFoundError:
             return None
         return data
+# Create an instance of CustomObject
+obj = CustomObject(name="John", age=25, is_student=True)
+print("Original Object:")
+obj.display()
+
+# Serialize the object
+obj.serialize("object.pkl")
+
+# Deserialize the object into a new instance
+new_obj = CustomObject.deserialize("object.pkl")
+print("\nDeserialized Object:")
+new_obj.display()
