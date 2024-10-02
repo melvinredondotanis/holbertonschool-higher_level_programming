@@ -4,7 +4,7 @@
 
 class CustomObject:
     """Custom class to be serialized."""
-    def __init__(self, name, age, is_student):
+    def __init__(self, name: str, age: int, is_student: bool):
         """Initialize object attributes."""
         self.name = name
         self.age = age
