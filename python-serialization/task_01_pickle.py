@@ -22,9 +22,9 @@ class CustomObject:
         with open(filename, "wb") as f:
             pickle.dump(self, f)
 
-    @staticmethod
-    def deserialize(filename):
+    @classmethod
+    def deserialize(cls, filename):
         """Deserialize object from file."""
         import pickle
         with open(filename, "rb") as f:
-            return pickle.load(f)
+            data = pickle.load(f)
