@@ -6,9 +6,9 @@ class CustomObject:
     """Custom class to be serialized."""
     def __init__(self, name, age, is_student):
         """Initialize object attributes."""
-        self.name = int(name)
-        self.age = int(age)
-        self.is_student = bool(is_student)
+        self.name = name
+        self.age = age
+        self.is_student = is_student
 
     def display(self):
         """Display object attributes."""
