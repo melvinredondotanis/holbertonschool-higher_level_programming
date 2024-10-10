@@ -26,7 +26,7 @@ def get_users(username):
     if user:
         return jsonify(user)
     else:
-        return jsonify({"error": "User not found"})
+        return jsonify({"error": "User not found"}), 404
 
 
 @app.route("/add_user", methods=["POST"])
@@ -50,7 +50,9 @@ def post_register():
         }
         return jsonify({"message": "User added successfully",
                         "user": users[username]
-                        })
+                        }), 201
+    else:
+        return jsonify({"error": "Request must be JSON"}), 400
 
 
 @app.route("/data")
