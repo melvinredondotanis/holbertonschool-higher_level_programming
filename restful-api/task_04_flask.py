@@ -48,7 +48,7 @@ def post_register():
             "age": age,
             "city": city
         }
-        return jsonify({"message": "User added successfully",
+        return jsonify({"message": "User added",
                         "user": users[username]
                         }), 201
     else:
