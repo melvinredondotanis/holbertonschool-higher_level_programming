@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 """Task 5: Basic Security"""
 
+import json
+
 from flask import Flask
 from flask import jsonify
 from flask import request
@@ -36,9 +38,9 @@ users = {
 
 @auth.verify_password
 def verify_password(username, password):
-    check = check_password_hash(users[username]['password'], password)
-    if username in users and check:
-        return username
+    if username in users:
+        if check_password_hash(users[username]['password'], password):
+            return username
 
 
 @app.route("/basic-protected")
@@ -50,13 +52,21 @@ def basic_protected():
 
 @app.route("/login", methods=["POST"])
 def login():
-    username = request.json.get("username", None)
-    password = request.json.get("password", None)
+    username = None
+    password = None
+
+    if request.is_json:
+        data = request.get_json()
+        username = data.get("username")
+        password = data.get("password")
 
     if not username or not password:
-        return 401
+        return jsonify(), 401
 
-    if check_password_hash(users[username]['password'], password):
+    if username not in users:
+        return jsonify(), 401
+
+    if check_password_hash(users.get(username).get("password"), password):
         access_token = create_access_token(identity=username)
         return jsonify({"access_token": access_token}), 200
 
