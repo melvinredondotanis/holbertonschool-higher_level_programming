@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 """Task 5: Basic Security"""
 
-import json
-
 from flask import Flask
 from flask import jsonify
 from flask import request
@@ -38,6 +36,7 @@ users = {
 
 @auth.verify_password
 def verify_password(username, password):
+    """Verify password"""
     if username in users:
         if check_password_hash(users[username]['password'], password):
             return username
@@ -52,6 +51,7 @@ def basic_protected():
 
 @app.route("/login", methods=["POST"])
 def login():
+    """Login route"""
     username = None
     password = None
 
@@ -73,5 +73,22 @@ def login():
     return 401
 
 
+@app.route("/jwt-protected", methods=["GET"])
+@jwt_required()
+def jwt_protected():
+    """JWT protected route"""
+    return "JWT Auth: Access Granted"
+
+
+@app.route("/admin-only", methods=["GET"])
+@jwt_required()
+def admin_only():
+    """Admin only route"""
+    current_user = get_jwt_identity()
+    if users[current_user]["role"] != "admin":
+        return jsonify({"error": "Admin access required"}), 403
+    return "Admin Access: Granted"
+
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
