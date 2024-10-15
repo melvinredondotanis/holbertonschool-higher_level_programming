@@ -84,7 +84,7 @@ def admin_only():
     current_user = get_jwt_identity()
     if users[current_user]["role"] != "admin":
         return jsonify({"error": "Admin access required"}), 403
-    return "Admin Access: Granted"
+    return "Admin Access: Granted", 200
 
 
 if __name__ == "__main__":
