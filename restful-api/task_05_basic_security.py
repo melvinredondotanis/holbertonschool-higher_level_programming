@@ -52,25 +52,22 @@ def basic_protected():
 @app.route("/login", methods=["POST"])
 def login():
     """Login route"""
-    username = None
-    password = None
+    if not request.is_json:
+        return jsonify(), 400
 
-    if request.is_json:
-        data = request.get_json()
-        username = data.get("username")
-        password = data.get("password")
+    data = request.get_json()
+    username = data.get("username", None)
+    password = data.get("password", None)
 
     if not username or not password:
+        return jsonify(), 400
+
+    user = users.get(username, None)
+    if not user or not check_password_hash(user["password"], password):
         return jsonify(), 401
 
-    if username not in users:
-        return jsonify(), 401
-
-    if check_password_hash(users.get(username).get("password"), password):
-        access_token = create_access_token(identity=username)
-        return jsonify({"access_token": access_token}), 200
-
-    return 401
+    access_token = create_access_token(identity=username)
+    return jsonify(access_token=access_token), 200
 
 
 @app.route("/jwt-protected", methods=["GET"])
