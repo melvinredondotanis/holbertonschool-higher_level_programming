@@ -17,4 +17,4 @@ if __name__ == "__main__":
     cursor.execute("SELECT cities.id, cities.name, states.name \
     FROM cities JOIN states ON cities.state_id = states.id \
     WHERE states.name = '{}';".format(sys.argv[4]))
-    print(", ".join([state[1] for state in states]))
+    print(", ".join([state[1] for state in cursor.fetchall()]))
